@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./cart.css">
-    <link rel="icon" type="image/x-icon" href="./assets/images/mainlogoWhite.png">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <title>NeoAcoustics - Cart</title>
 </head>
 <body>
@@ -26,15 +26,23 @@
         </div>
     </header>
 
-    <nav class="nav-menu">
-        <a href="homePage.html">HOME</a>
-        <a href="#">CATEGORY</a>
-        <a href="bestSeller.html">BEST SELLER</a>
-        <a href="cart.html" class="active">
-            CART <img src="./assets/images/cart.png" height="24">
-        </a>
-        <a href="#">SUPPORT</a>
-    </nav>
+        <div class="redirectlinks d-flex align-items-center">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <nav id="mainNav">
+                            <a href="homePage.html" class="navLinks active">Home</a>
+                            <a href="#" class="navLinks">CATEGORIES</a>
+                            <a href="bestSeller.html" class="navLinks">BEST SELLER</a>
+                            <a href="#" class="navLinks d-flex align-items-center gap-1 text-danger">
+                                CART <img src="./assets/images/cart.png" alt="" height="18px">
+                            </a>
+                            <a href="supportPage.html" class="navLinks">SUPPORT</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <main class="content">
         <h1>Shopping Cart</h1>
@@ -85,19 +93,25 @@
             <div class="subtotal">
                 SubTotal : <span id="total">$319.98</span>
             </div>
-            <button class="checkout-btn" onclick="location.href='payment.html'">
+            <button class="checkout-btn" onclick="Payment()">
                 Proceed To Payment
             </button>
         </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer container-full">
         <div>© 2025. NeoAcoustics . All Rights Reserved.</div>
         <div>By NEO Productions.</div>
     </footer>
 </div>
 
 <script>
+
+    function Payment(){
+        console.log("Procceding to Payment Page..")
+        window.location.href = 'payment.html';
+    }
+
     function updateQty(i, val) {
         let qty = document.querySelectorAll('.quantity span')[i];
         let n = parseInt(qty.innerText) + val;
